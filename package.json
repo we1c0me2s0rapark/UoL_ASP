@@ -2,7 +2,7 @@
   "name": "uol_asp",
   "version": "1.0.0",
   "description": "Agile Software Project",
-  "main": "main.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/we1c0me2s0rapark/UoL_ASP#readme",
   "dependencies": {
+    "ejs": "^3.1.9",
     "express": "^4.18.2"
   }
 }

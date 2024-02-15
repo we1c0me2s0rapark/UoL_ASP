@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+</head>
+<style type="text/css">
+    .promo {
+        width: 100%;
+        height: 400px;
+        background-color: yellow;
+    }
+    .promo #top {
+        height: 10%;
+    }
+    .promo #mid {
+        height: 75%;
+        background-color: gray;
+    }
+    .promo #btm {
+        height: 15%;
+        background-color: pink;
+    }
+    /* top proto */
+    .netpages {
+        display: grid;
+        grid-template-columns: max-content auto;
+    }
+    .netpages #sns {
+        display: grid;
+        grid-template-columns: repeat(3, 50px);
+    }
+    .netpages #user button {
+        float: right;
+    }
+    /* bottom proto */
+    .subpages {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+    }
+    .subpages button {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<body>
+    <h1>Main Page</h1>
+    <div class="promo">
+        <div id="top" class="netpages">
+            <div id="sns">
+                <button>sns1</button>
+                <button>sns2</button>
+                <button>sns3</button>
+            </div>
+            <form id="user" action="/users/login" method="POST">
+                <button type="submit">LogIn</button>
+            </form>
+        </div>
+        <div id="mid"></div>
+        <div id="btm" class="subpages">
+            <form action="/pages/buy" method="POST">
+                <button type="submit">Buy</button>
+            </form>
+            <form action="/pages/rent" method="POST">
+                <button>Rent</button>
+            </form>
+            <form action="/pages/sale" method="POST">
+                <button>Sale</button>
+            </form>
+        </div>
+    </div>
+    <div></div>
+</body>
+</html>
