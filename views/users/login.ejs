@@ -6,7 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
+<style type="text/css">
+    div {
+        /* Horizontally center the input items for login on the page */
+        display: flex;
+        justify-content: center;
+    }
+    div .sign {
+        /* Use column and row alignment for layout */
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        /* Create space between the top of the page and the login items */
+        margin-top: 100px;
+    }
+    form {
+        /* Restrict the width of the entire login area */
+        width: 500px;
+    }
+    form #in {
+        /* Use column and row alignment for layout */
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+    }
+    .userInput {
+        /* Use column and row alignment for layout */
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        /* grid-template-rows: repeat(2, auto); */
+        margin-bottom: 15px;
+    }
+    .btn {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    p {
+        color: darkred;
+        font-weight: bold;
+    }
+</style>
 <body>
-    <h1>Login Page</h1>
+    <h1>Login</h1>
+    <div>
+        <div class="sign">
+            <p id="inputNotification"></p>
+            <form id="in" action="/users/submit" method="POST">
+                <!-- Email input -->
+                <div class="userInput">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" placeholder="Enter your email"/>
+                </div>
+                <!-- Password input -->
+                <div class="userInput">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" placeholder="Enter your password"/>
+                </div>
+                <!-- Implement a submit button on the form to send both email and password data to users.js -->
+                <button class="btn" type="submit">Sign In</button>
+            </form>
+            <form id="up" action="/users/signup" method="POST">
+                <button class="btn" type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
 </body>
+<script type="text/javascript">
+    var data = JSON.parse('<%-JSON.stringify(notFound)%>');
+    console.log(data);
+    if (data == "email") {
+        document.getElementById('inputNotification').innerText = "Your email not found! Try again";
+    } else if (data == "password") {
+        document.getElementById('inputNotification').innerText = "Your password not matched! Try again";
+    }
+</script>
 </html>
