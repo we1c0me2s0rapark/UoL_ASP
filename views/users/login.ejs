@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/public/css/common.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/users.css" rel="stylesheet" type="text/css">
     <title>Login</title>
 </head>
 <style type="text/css">
@@ -37,11 +39,8 @@
         /* grid-template-rows: repeat(2, auto); */
         margin-bottom: 15px;
     }
-    .btn {
-        width: 100%;
-        margin-bottom: 15px;
-    }
     p {
+        height: 30px;
         color: darkred;
         font-weight: bold;
     }
@@ -51,7 +50,7 @@
     <div>
         <div class="sign">
             <p id="inputNotification"></p>
-            <form id="in" action="/users/submit" method="POST">
+            <form id="in" action="/users/login/submit" method="POST">
                 <!-- Email input -->
                 <div class="userInput">
                     <label for="email">Email</label>
@@ -63,16 +62,16 @@
                     <input type="password" name="password" placeholder="Enter your password"/>
                 </div>
                 <!-- Implement a submit button on the form to send both email and password data to users.js -->
-                <button class="btn" type="submit">Sign In</button>
+                <button type="submit">Sign In</button>
             </form>
             <form id="up" action="/users/signup" method="POST">
-                <button class="btn" type="submit">Sign Up</button>
+                <button type="submit">Sign Up</button>
             </form>
         </div>
     </div>
 </body>
 <script type="text/javascript">
-    var data = JSON.parse('<%-JSON.stringify(notFound)%>');
+    var data = JSON.parse('<%-JSON.stringify(error)%>');
     console.log(data);
     if (data == "email") {
         document.getElementById('inputNotification').innerText = "Your email not found! Try again";

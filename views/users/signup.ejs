@@ -4,9 +4,79 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/public/css/common.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/users.css" rel="stylesheet" type="text/css">
     <title>Signup</title>
 </head>
+<style type="text/css">
+    div {
+        /* Horizontally center the input items for login on the page */
+        display: flex;
+        justify-content: center;
+    }
+    div .sign {
+        /* Use column and row alignment for layout */
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+        /* Create space between the top of the page and the login items */
+        margin-top: 100px;
+    }
+    form {
+        /* Restrict the width of the entire login area */
+        width: 500px;
+        /* Use column and row alignment for layout */
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+    }
+    .userInput {
+        /* Use column and row alignment for layout */
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        /* grid-template-rows: repeat(2, auto); */
+        margin-bottom: 15px;
+    }
+    p {
+        height: 30px;
+        color: darkred;
+        font-weight: bold;
+    }
+</style>
 <body>
     <h1>Signup</h1>
+    <div>
+        <div class="sign">
+            <p id="inputNotification"></p>
+            <form action="/users/signup/submit" method="POST">
+                <!-- Name input -->
+                <div class="userInput">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" placeholder="Enter your full name"/>
+                </div>
+                <!-- Email input -->
+                <div class="userInput">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" placeholder="Enter your email"/>
+                </div>
+                <!-- Password input -->
+                <div class="userInput">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" placeholder="Enter your password"/>
+                </div>
+                <!-- Implement a submit button on the form to send both email and password data to users.js -->
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
 </body>
+<script type="text/javascript">
+    var data = JSON.parse('<%-JSON.stringify(error)%>');
+    console.log(data);
+    if (data == "email") {
+        document.getElementById('inputNotification').innerText = "Wrong email! Try again";
+    } else if (data == "exist") {
+        document.getElementById('inputNotification').innerText = "Your email has already been registered";
+    }
+</script>
 </html>
