@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/public/css/common.css" rel="stylesheet" type="text/css">
+    <title>Signup</title>
+</head>
+<style type="text/css">
+    body {
+        /* Horizontally center the input items for login on the page */
+        display: flex;
+        justify-content: center;
+    }
+    div {
+        /* Create space between the top of the page and the login items */
+        position: absolute;
+        top: 20%;
+    }
+    p {
+        font-size: 25px;
+    }
+    button {
+        width: 100%;
+    }
+</style>
+<body>
+    <div>
+        <p id="name"></p>
+        <form action="/" method="GET">
+            <!-- Implement a submit button on the form to redirect to the main page -->
+            <button type="submit">Back to main</button>
+        </form>
+    </div>
+</body>
+<script type="text/javascript">
+    var data = JSON.parse('<%-JSON.stringify(name)%>');
+    document.getElementById('name').innerText = "Welcome, " + data + "!";
+</script>
+</html>

@@ -12,7 +12,7 @@ app.use(
     express.urlencoded({
         extended:true,
     })
-)
+);
 
 // Set 'views' as the root folder to access the ejs files
 app.set('view engine', 'ejs');
@@ -26,7 +26,8 @@ app.get('/', (req, res) => {
 app.use('/pages', pagesRouter);
 app.use('/postings', postingsRouter);
 app.use('/users', usersRouter);
+app.use('/public', express.static('public'));
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log('Example app listening on port ${port}');
 });
