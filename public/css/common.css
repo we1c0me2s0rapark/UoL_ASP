@@ -1,5 +1,17 @@
 body {
     /* Apply background image */
-    background-image: url('/public/image/back.jpg');
-    background-repeat: no-repeat;
+    /* background-image: url('/public/image/back.jpg');
+    background-repeat: no-repeat; */
+    background-color: rgb(241, 255, 241);
+}
+
+button {
+    border-radius: 5px;
+    border-width: 0px;
+    background-color: rgb(80, 135, 80);
+    color: white;
+}
+button:hover {
+    background-color: rgb(205, 255, 205);
+    color: black;
 }

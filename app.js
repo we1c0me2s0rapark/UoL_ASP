@@ -8,6 +8,12 @@ const pagesRouter = require('./routes/pages');
 const postingsRouter = require('./routes/postings');
 const usersRouter = require('./routes/users');
 
+/*
+    currentUser is a global variable that can be accessed by other .js files
+    It stores the email of the currently logged-in user
+*/
+currentUser = undefined;
+
 app.use(
     express.urlencoded({
         extended:true,

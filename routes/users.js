@@ -34,7 +34,9 @@ router.post('/login/submit', (req, res, next) => {
         // return res.render('./users/login.ejs', {'error': 'email'});
         // return res.render('./users/login.ejs', {'error': 'password'});
     }
+
     // User is valid and exists, proceed with login and access to functionalities (Buy, Rent, and Sale)
+    currentUser = req.body.email;
     return res.render('./pages/main.ejs');
 });
 
