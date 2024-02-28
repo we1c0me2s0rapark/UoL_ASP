@@ -5,9 +5,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/public/css/common.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/subpages.css" rel="stylesheet" type="text/css">
     <title>Buy</title>
 </head>
 <body>
     <h1>Buy Page</h1>
+    <div class="content">
+        <form action="/postings/write" method="POST">
+            <button id="taskBtn" type="submit">Create</button>
+        </form>
+        <table id="items"></table>
+        <div id="pages"></div>
+    </div>
 </body>
+<script type="text/javascript">
+    const maxCells = 15;
+    const maxPages = 10;
+
+    // Create a table
+    for (var i = 0; i < maxCells; ++i) {
+        // Create cells
+        var c1 = document.createElement("td");
+        c1.innerHTML = "timestamp" + i;
+        c1.id = i;
+        var c2 = document.createElement("td");
+        c2.innerHTML = "author";
+        c2.id = i;
+        var c3 = document.createElement("td");
+        c3.innerHTML = "title";
+        c3.id = i;
+
+        // Set styles to each cell
+        c1.style.width = "200px";
+        c2.style.width = "100px";
+        c1.style.borderTop = "1px solid black";
+        c2.style.borderTop = "1px solid black";
+        c3.style.borderTop = "1px solid black";
+        if (i == maxCells - 1) {
+            c1.style.borderBottom = "1px solid black";
+            c2.style.borderBottom = "1px solid black";
+            c3.style.borderBottom = "1px solid black";
+        }
+
+        // Make a new row and add cells to it
+        var nrow = document.createElement("tr");
+        nrow.appendChild(c1);
+        nrow.appendChild(c2);
+        nrow.appendChild(c3);
+
+        // Assign a click event to the row
+        nrow.addEventListener("click", rowClicked, false);
+
+        // Add the row to the table
+        var table = document.getElementById('items');
+        table.appendChild(nrow);
+    }
+
+    // Create page numbers
+    for (var i = 0; i < maxPages; ++i) {
+        var btn = document.createElement("button");
+        btn.innerText = i;
+        btn.id = i;
+        btn.addEventListener("click", numClicked, false);
+        
+        var pages = document.getElementById('pages');
+        pages.appendChild(btn);
+    }
+    
+    function rowClicked(e) {
+        // Redirect to the view page using the index of the row
+        console.log("row clicked => ", e.target.id);
+    }
+
+    function numClicked(e) {
+        // Redirect to the view page using the index of the row
+        console.log("num clicked => ", e.target.id);
+    }
+</script>
 </html>
