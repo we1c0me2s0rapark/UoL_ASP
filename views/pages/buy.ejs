@@ -74,7 +74,31 @@
     
     function rowClicked(e) {
         // Redirect to the view page using the index of the row
-        console.log("row clicked => ", e.target.id);
+        var form = document.createElement("form");
+        form.action = "/postings/view";
+        form.method = "POST";
+
+        var authorData = document.createElement("input"); // Data: author
+        authorData.name = "author";
+        authorData.type = "hidden";
+        authorData.value = "author test";
+        form.appendChild(authorData);
+
+        var titleData = document.createElement("input"); // Data: title
+        titleData.name = "title";
+        titleData.type = "hidden";
+        titleData.value = "title test";
+        form.appendChild(titleData);
+
+        var timeData = document.createElement("input"); // Data: timestamp (created time)
+        timeData.name = "created_time";
+        timeData.type = "hidden";
+        timeData.value = "time test";
+        form.appendChild(timeData);
+        
+        document.body.appendChild(form);
+        form.submit();
+        // console.log("row clicked => ", e.target.id);
     }
 
     function numClicked(e) {

@@ -21,9 +21,9 @@ router.post('/upload', (req, res, next) => {
     console.log('test >> ' + req.body.currentUser,', ' + req.body.title,', ' + req.body.content);
 });
 
-// Redirect to the write page
+// Redirect to the view page
 router.post('/view', (req, res, next) => {
-    console.log('test >> ' + req.body.content);
+    return res.render('./postings/view.ejs', {'author': req.body.author, 'title': req.body.title, 'time': req.body.created_time});
 });
 
 module.exports = router;

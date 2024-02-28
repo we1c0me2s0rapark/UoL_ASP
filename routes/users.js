@@ -1,5 +1,5 @@
 /**
- * The routes for user management (login, signup, info, update)
+ * The routes for user management (login, signup, info)
  */
 
 const express = require("express");
@@ -59,6 +59,11 @@ router.post('/signup/submit', (req, res, next) => {
         // return res.render('./users/signup.ejs', {'error': 'exist'});
     }
     return res.render('./users/registered.ejs', {'name': req.body.name});
+});
+
+// Send email
+router.post('/contact', (req, res, next) => {
+    console.log("This is a bridge between users to contact");
 });
 
 function isValidEmailFormat(email) {

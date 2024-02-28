@@ -8,10 +8,83 @@
     <title>Write</title>
 </head>
 <style type="text/css">
+    #body {
+        /* Use column and row alignment for layout */
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+    }
+    button {
+        width: 100px;
+        height: 20px;
+        margin-top: 10px;
+    }
+    label {
+        font-weight: bold;
+    }
+    #divTitle {
+        /* Use column and row alignment for layout */
+        display: grid;
+        grid-template-columns: 50px auto;
+        margin-bottom: 5px;
+    }
+    #divAuthor {
+        /* Use column and row alignment for layout */
+        display: grid;
+        grid-template-columns: repeat(4, max-content);
+        margin-bottom: 5px;
+    }
+    input,textarea {
+        background-color: white;
+        border-width: 0px;
+        padding: 10px;
+    }
+    #authorName {
+        background-color: transparent;
+    }
 </style>
 <body>
     <h1>View Page</h1>
-    <div>
+    <div id="body">
+        <!-- Author's name and creation date/time of the content -->
+        <div id="divAuthor">
+            <p style="font-weight: bold;">Author:</p>
+            <input id="authorName" name="authorName" disabled="disabled" onkeypress="return event.keyCode != 13;"></input>
+            <p style="font-weight: bold;">Created:</p>
+            <p id="time"></p>
+        </div>
+        <!-- Content title -->
+        <div id="divTitle">
+            <label>Title</label>
+            <input id="title" name="title" disabled="disabled" onkeypress="return event.keyCode != 13;"></input>
+        </div>
+        <!-- Content -->
+        <textarea id="content" name="content" rows="35" cols="1" disabled="disabled"></textarea>
+        <!-- Send an email from the user to the author -->
+        <form action="/users/contact" method="POST">
+            <button type="submit">Send Email</button>
+        </form>
     </div>
 </body>
+<script type="text/javascript">
+    var authorData = JSON.parse('<%-JSON.stringify(author)%>');
+    var titleData = JSON.parse('<%-JSON.stringify(title)%>');
+    var timeData = JSON.parse('<%-JSON.stringify(time)%>');
+
+    // Attach the author's name
+    var authorObj = document.getElementById('authorName');
+    authorObj.value = authorData;
+    authorObj.style.width = "150px";
+    authorObj.style.paddingLeft = "5px";
+    authorObj.style.paddingRight = "5px";
+    // Attach the creation date/time of the content
+    var timeObj = document.getElementById('time');
+    timeObj.innerText = timeData;
+    timeObj.style.width = "200px";
+    timeObj.style.paddingLeft = "5px";
+    timeObj.style.paddingRight = "5px";
+    // Attach the content title
+    var titleObj = document.getElementById('title');
+    titleObj.value = titleData;
+</script>
 </html>
