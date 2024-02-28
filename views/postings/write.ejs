@@ -33,12 +33,14 @@
     <h1>Write Page</h1>
     <div>
         <form action="/postings/upload" method="POST">
-            <!-- <input type="hidden" name="content" onkeypress="return event.keyCode != 13;"/> -->
+            <!-- Content title -->
             <div id="divTitle">
                 <label>Title</label>
                 <input name="title" onkeypress="return event.keyCode != 13;"></input>
             </div>
-            <textarea name="content" rows="35" cols="1"></textarea>
+            <!-- Editable text -->
+            <textarea name="content" rows="35" cols="1" ></textarea>
+            <!-- Button to Save the content to the database -->
             <button type="submit">Create</button>
         </form>
     </div>
