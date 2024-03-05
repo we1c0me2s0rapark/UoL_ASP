@@ -1,0 +1,72 @@
+.p-message {
+  display: flex;
+  height: calc(100vh - 160px);
+}
+
+.p-message .left {
+  width: 300px;
+  padding: 0 16px 0;
+  border-right: 1px solid #eee;
+}
+
+.p-message .right {
+  flex: 1;
+  padding: 16px;
+}
+
+.p-message .mr {
+  text-align: right;
+}
+
+.p-message .ml {}
+
+.p-message .mr,
+.ml {
+
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.mr .message-item {
+  background-color: rgb(106, 166, 248);
+}
+
+.ml .message-item {
+  background-color: rgb(188, 191, 205);
+}
+
+.message-item {
+  display: inline-block;
+  max-width: 300px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.channel-list {
+  height: calc(100% - 80px);
+  overflow-y: scroll;
+}
+
+.channel-list::-webkit-scrollbar {
+  width: 0;
+}
+
+.channel-item {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.channel-item:hover {
+  background: #eee;
+}
+
+.channel-item img {
+  width: 28px;
+  margin-right: 8px;
+}
