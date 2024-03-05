@@ -1,0 +1,5 @@
+const path = require('path')
+const file = path.resolve(__dirname, '../../furniture.db')
+console.log(file)
+const sqlite3 = require('sqlite3').verbose()
+module.exports = new sqlite3.Database(file)

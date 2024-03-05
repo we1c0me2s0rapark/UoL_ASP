@@ -1,0 +1,35 @@
+.filter {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.sort {
+  margin-top: 12px;
+}
+
+.furniture-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.type-list {
+  display: flex;
+}
+
+.type-list .type-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(232, 230, 231);
+  color: rgb(90, 84, 84);
+  flex: 1;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  height: 80px;
+  cursor: pointer;
+}
+
+.type-list .type-item:hover {
+  background: #ccc;
+}
