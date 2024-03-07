@@ -13,7 +13,7 @@ interface FurnitureFormModalProps {
   visible: boolean;
   onClose: () => void;
   onSubmit: (furniture: Furniture) => void;
-  furniture?: Furniture; // 当前编辑的任务, 如果没有，则表示是创建新任务
+  furniture?: Furniture; //Edit the current task or creating a new task
 }
 
 const getBase64 = (img: FileType, callback: (url: string) => void) => {
